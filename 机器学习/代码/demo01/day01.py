@@ -4,7 +4,8 @@ def datasets_demo():
     #数据集的使用
     iris = load_iris()
     #print(iris)
-    print(iris['DESCR'])
+    #print(iris['DESCR'])
+    print(iris.feature_names)
     return None
 
 
