@@ -18,8 +18,8 @@
       <file leaf-file-name="day01.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/day01.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="161">
-              <caret line="7" column="0" lean-forward="true" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+            <state relative-caret-position="69">
+              <caret line="3" column="11" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="10" selection-end-column="19" />
               <folding />
             </state>
           </provider>
@@ -48,8 +48,8 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="211" />
-    <option name="y" value="67" />
+    <option name="x" value="-174" />
+    <option name="y" value="94" />
     <option name="width" value="1918" />
     <option name="height" value="1078" />
   </component>
@@ -274,7 +274,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="211" y="67" width="1918" height="1078" extended-state="0" />
+    <frame x="-174" y="94" width="1918" height="1078" extended-state="1" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25263157" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -313,8 +313,8 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/day01.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="161">
-          <caret line="7" column="0" lean-forward="true" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+        <state relative-caret-position="69">
+          <caret line="3" column="11" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="10" selection-end-column="19" />
           <folding />
         </state>
       </provider>
