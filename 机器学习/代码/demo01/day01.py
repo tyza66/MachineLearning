@@ -2,6 +2,7 @@ from sklearn.datasets import load_iris
 from sklearn.model_selection import train_test_split
 from sklearn.feature_extraction import DictVectorizer
 from sklearn.feature_extraction.text import CountVectorizer
+import jieba
 
 def datasets_demo():
     #数据集的使用
@@ -33,14 +34,16 @@ def count_demo():
     print("特征名：", transfer.get_feature_names_out())
     return None
 
+def cut_word(text):
+    out = " ".join(list(jieba.cut(text)))
+    return out
+
 def count_chinese_demo():
     #中文文本特征抽取 自动分词
-    data = ["I am a cat,i like python!","You are a cat,you do not like python!"]
-    #实例化转换器，调用fit_transform
-    transfer = CountVectorizer(stop_words=["cat"])
-    data_new = transfer.fit_transform(data)
-    print(data_new.toarray())
-    print("特征名：", transfer.get_feature_names_out())
+    data = []
+    data_new = []
+    for sent in data:
+        data_new.append(cut_word(sent))
     return None
 
 if __name__ == '__main__':
