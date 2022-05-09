@@ -27,11 +27,21 @@ def count_demo():
     #文本特征抽取
     data = ["I am a cat,i like python!","You are a cat,you do not like python!"]
     #实例化转换器，调用fit_transform
-    transfer = CountVectorizer()
+    transfer = CountVectorizer(stop_words=["cat"])
+    data_new = transfer.fit_transform(data)
+    print(data_new.toarray())
+    print("特征名：", transfer.get_feature_names_out())
+    return None
+
+def count_chinese_demo():
+    #中文文本特征抽取 自动分词
+    data = ["I am a cat,i like python!","You are a cat,you do not like python!"]
+    #实例化转换器，调用fit_transform
+    transfer = CountVectorizer(stop_words=["cat"])
     data_new = transfer.fit_transform(data)
     print(data_new.toarray())
     print("特征名：", transfer.get_feature_names_out())
     return None
 
 if __name__ == '__main__':
-    count_demo()
+    count_chinese_demo()
