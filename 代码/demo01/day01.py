@@ -88,6 +88,12 @@ def stand_demo():
     print(data_new)
     return None
 
+def variance_demo():
+    #过滤低方差数据
+    data = pd.read_csv("datingTestSet2.txt")
+    print(data)
+    return None
+
 
 if __name__ == '__main__':
-    stand_demo()
+    variance_demo()
