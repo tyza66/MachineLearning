@@ -5,6 +5,8 @@ from sklearn.feature_extraction.text import CountVectorizer,TfidfVectorizer
 import jieba
 import pandas as pd
 from sklearn.preprocessing import MinMaxScaler,StandardScaler
+from sklearn.feature_selection import VarianceThreshold
+from scipy.stats import pearsonr
 
 def datasets_demo():
     #数据集的使用
@@ -89,10 +91,18 @@ def stand_demo():
     return None
 
 def variance_demo():
-    #过滤低方差数据
-    data = pd.read_csv("datingTestSet2.txt")
-    print(data)
+    #过滤低方差数据 低方差特征过滤
+    data = pd.read_csv("factor_returns.csv")
+    data = data.iloc[:,1:-2]
+    data_new = VarianceThreshold(threshold=0.0).fit_transform(data)
+    print(data_new,data_new.shape)
+
+    # 计算某两个变量之间的相关系数(皮尔逊相关系数)
+    r = pearsonr(data['pe_ratio'],data['pb_ratio'])
+    print(r) # -0.004389322779936276 就是相关系数
+
     return None
+
 
 
 if __name__ == '__main__':
