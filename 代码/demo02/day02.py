@@ -3,7 +3,9 @@ from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.model_selection import GridSearchCV
-
+from sklearn.datasets import fetch_20newsgroups
+from sklearn.feature_extraction.text import TfidfVectorizer
+from sklearn.naive_bayes import MultinomialNB
 def knn_iris():
     # 用knn算法对鸢尾花数据集进行分类
     # 1 获取数据 2 划分数据集 3 特征工程标准化 4 knn算法预估器 5 评估模型
@@ -95,5 +97,32 @@ def knn_iris_gscv():
 
     return None
 
+def nb_news():
+    # 朴素贝叶斯算法对新闻分类
+
+    # 获取数据集
+    news = fetch_20newsgroups(subset="all")
+
+    # 划分数据集
+    x_train,x_test,y_train,y_test = train_test_split(news.data, news.target)
+    # 文本特征抽取
+    transfer = TfidfVectorizer()
+    x_train = transfer.fit_transform(x_train)
+    x_test = transfer.transform(x_test)
+
+    # 朴素贝叶斯算法预估器
+    estimator = MultinomialNB() # 默认alpha=1.0
+    estimator.fit(x_train, y_train) # 训练
+
+    # 模型评估
+    y_predict = estimator.predict(x_test)
+    print("预测值为：", y_predict)
+    print("比对真实值和预测值：", y_test == y_predict) # 比对真实值和预测值
+    score = estimator.score(x_test, y_test) # 计算准确率 使用测试集的特征值和目标值
+    print("准确率为：", score)
+
+
+    return None
+
 if __name__ == "__main__":
-    knn_iris_gscv()
+    nb_news()
