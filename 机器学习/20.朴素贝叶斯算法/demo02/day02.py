@@ -6,7 +6,6 @@ from sklearn.model_selection import GridSearchCV
 from sklearn.datasets import fetch_20newsgroups
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.naive_bayes import MultinomialNB
-from sklearn.tree import DecisionTreeClassifier,export_graphviz
 def knn_iris():
     # 用knn算法对鸢尾花数据集进行分类
     # 1 获取数据 2 划分数据集 3 特征工程标准化 4 knn算法预估器 5 评估模型
@@ -125,35 +124,5 @@ def nb_news():
 
     return None
 
-def decison_iris():
-    # 决策树对鸢尾花数据集进行分类
-
-    # 1 获取数据
-    iris = load_iris()
-
-    # 2 划分数据集
-    x_train,x_test,y_train,y_test = train_test_split(iris.data, iris.target, random_state=22)
-
-    # 决策树不用弄特征工程 标准化
-    # 3 决策树预估器 estimator就是预估器
-    estimator = DecisionTreeClassifier(criterion="entropy") # 默认是gini基尼系数 我们用信息熵 信息增益
-    estimator.fit(x_train, y_train) # 训练
-
-    # 4 模型评估
-    # 方法1：直接比对真实值和预测值
-    y_predict = estimator.predict(x_test)
-    print("预测值为：", y_predict)
-    print("比对真实值和预测值：", y_test == y_predict) # 比对真实值和预测值
-
-    # 方法2：计算准确率
-    score = estimator.score(x_test, y_test)
-    print("准确率为：", score)
-
-    # 可视化决策树
-    export_graphviz(estimator, out_file="iris_tree.dot", feature_names=iris.feature_names)
-    # http://webgraphviz.com/查看
-    return None
-
-
 if __name__ == "__main__":
-    decison_iris()
+    nb_news()
