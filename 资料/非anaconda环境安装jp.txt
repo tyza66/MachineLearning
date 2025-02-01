@@ -1,0 +1,34 @@
+本文是同名视频的文字版, 具体操作演示请看我主页的同名视频.
+
+jupyter好用但是安装配置有点麻烦，如果网友需要可以私信我帮你远程协助安装
+
+0.修改pip安装源-国内清华源
+pip config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple
+
+1.安装jupyterlab, 如果直接下载anaconda请忽略这一步
+pip install jupyterlab
+
+pip install -i https://pypi.tuna.tsinghua.edu.cn/simple jupyterlab-language-pack-zh-CN
+
+2.安装中文语言包
+pip install jupyterlab-language-pack-zh-CN
+
+3.安装代码提示工具
+pip install jupyterlab-lsp
+pip install -U jedi-language-server
+
+pip install python-lsp-server[all]
+再在jupyer lab肯定插件管理器搜索 jupyterlab-lsp 安装就OK了
+
+4.修改配置
+1.生成配置文件, 如果是直接下载anaconda请直接用下面文件夹路径打开
+jupyter lab --generate-config
+
+2.打开配置文件
+C:\Users\用户名\.jupyter里面的jupyter_lab_config.py (如果没有这个就是jupyter_notebook_config.py)
+
+3.找到c.ServerApp.notebook_dir = ''改成你需要启动的文件夹, 去掉前面的注释(#)
+5.启动
+1.终端中(Windows PowerShell)输入jupyter lab --ip 0.0.0.0 --port 8888
+2.如果是下载anaconda直接在界面中点击也可以, 但是这样只能本机使用, 需要手机或者局域网访问要在anaconda的PowerShell里输入
+3.复制生成的token, 供其他设备使用(仅需要输入一次),也可以在输入的时候设置一个简单点的密码

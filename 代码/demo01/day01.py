@@ -7,6 +7,7 @@ import pandas as pd
 from sklearn.preprocessing import MinMaxScaler,StandardScaler
 from sklearn.feature_selection import VarianceThreshold
 from scipy.stats import pearsonr
+from sklearn.decomposition import PCA
 
 def datasets_demo():
     #数据集的使用
@@ -111,10 +112,16 @@ def variance_demo():
     plt.figure(figsize=(20,8),dpi=100)
     plt.scatter(data['revenue'],data['total_expense'])
     plt.show(block=True)
+    return None
 
+def pca_demo():
+    #主成分分析进行特征降维
+    data = [[2,8,4,5],[6,3,0,8],[5,4,9,1]] # 3个样本，4个特征
+    data_new = PCA(n_components=2).fit_transform(data) # 降维成2个特征 保留了原来95%/90%的信息
+    print(data_new)
     return None
 
 
 
 if __name__ == '__main__':
-    variance_demo()
+    pca_demo()
