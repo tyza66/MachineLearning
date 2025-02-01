@@ -1,0 +1,41 @@
+workon命令是用于在Linux系统中切换Python虚拟环境的工具，它是virtualenvwrapper的一部分。以下是关于workon命令的详细介绍：12
+
+安装virtualenvwrapper
+在使用workon命令之前，需要先安装virtualenvwrapper工具。可以通过pip安装：
+
+bashpip install virtualenvwrapper
+配置环境变量
+安装完成后，需要配置virtualenvwrapper的环境变量。在shell配置文件（如~/.bashrc、~/.bash_profile或~/.zshrc）中添加以下内容：
+
+bashexport WORKON_HOME= $ HOME/.virtualenvs
+source /usr/local/bin/virtualenvwrapper.sh
+保存并退出配置文件，然后运行source ~/.bashrc使配置生效。2
+
+创建虚拟环境
+使用mkvirtualenv命令创建虚拟环境，例如：
+
+bashmkvirtualenv myenv
+这将在 $ HOME/.virtualenvs目录下创建一个名为myenv的虚拟环境，并自动激活该环境。12
+
+切换虚拟环境
+使用workon命令可以快速切换到已创建的虚拟环境，例如：
+
+bashworkon myenv
+列出虚拟环境
+运行workon命令不带参数，可以列出所有已创建的虚拟环境：
+
+bashworkon
+myenv1
+myenv2
+myenv3
+删除虚拟环境
+使用rmvirtualenv命令可以删除不再需要的虚拟环境，例如：
+
+bashrmvirtualenv myenv
+其他命令和功能
+lsvirtualenv：列出所有已创建的虚拟环境。
+cpvirtualenv：复制一个已存在的虚拟环境。
+showvirtualenv：显示指定虚拟环境的详细信息。
+deactivate：退出当前虚拟环境，返回到系统默认环境。
+workon命令的自动补全功能：通过TAB键自动补全虚拟环境的名称。123
+通过workon命令，可以方便地管理Python虚拟环境，隔离不同项目的依赖关系，提高开发效率。
